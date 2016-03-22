@@ -53,9 +53,16 @@ $(document).ready(function() {
       $("#show-contact h2").text(newContact.firstName);
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
+      $("ul#addresses").text("");
+      newContact.addresses.forEach(function(address) {
+        $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
+      });
     });
 
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
+    $("input.new-street").val("");
+    $("input.new-city").val("");
+    $("input.new-state").val("");
   });
 });
